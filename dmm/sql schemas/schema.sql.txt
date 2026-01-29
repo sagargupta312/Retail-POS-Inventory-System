@@ -1,0 +1,58 @@
+CREATE DATABASE IF NOT EXISTS store;
+USE store;
+
+-- NOTE:
+-- This schema is provided as a reference.
+-- Please review Python DB files to ensure exact compatibility.
+
+-- -------------------------------
+-- Inventory Table
+-- -------------------------------
+CREATE TABLE inventory (
+    id INT PRIMARY KEY,
+    Product VARCHAR(100) NOT NULL,
+    Selling_Price DECIMAL(10,2) NOT NULL,
+    Cost_Price DECIMAL(10,2) NOT NULL,
+    Unit INT NOT NULL,
+    Distributor VARCHAR(100),
+    category VARCHAR(100)
+);
+
+-- -------------------------------
+-- Bills Table
+-- -------------------------------
+CREATE TABLE bills (
+    bill_id VARCHAR(50) PRIMARY KEY,
+    bill_date DATETIME NOT NULL,
+    total_amount DECIMAL(10,2) NOT NULL,
+    discount DECIMAL(10,2) NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    customer VARCHAR(15)
+);
+
+-- -------------------------------
+-- Bill Items Table
+-- -------------------------------
+CREATE TABLE bill_items (
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    bill_id VARCHAR(50) NOT NULL,
+    id INT NOT NULL,
+    product_name VARCHAR(100),
+    quantity INT NOT NULL,
+    mrp DECIMAL(10,2),
+    price DECIMAL(10,2),
+    discount DECIMAL(10,2),
+    item_total DECIMAL(10,2),
+
+    FOREIGN KEY (bill_id) REFERENCES bills(bill_id)
+        ON DELETE CASCADE
+);
+
+-- -------------------------------
+-- Customer Table
+-- -------------------------------
+CREATE TABLE customer (
+    p_number VARCHAR(15) PRIMARY KEY,
+    t_bill DECIMAL(12,2) DEFAULT 0,
+    last_bill_date DATE
+);
