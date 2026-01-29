@@ -144,10 +144,8 @@ All core logic, workflows, and database design were implemented and understood b
 
 ---
 
-
-
-
-
 > This project represents my learning journey and is intended to evolve over time.
 
-```
+**Note:** *DMM* refers to **D Mega Mart**, a simulated retail store used as the context for this project.  
+Reference link: https://share.google/mhjDfRAQyUuNqbT6c
+
