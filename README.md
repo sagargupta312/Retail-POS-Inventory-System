@@ -128,7 +128,6 @@ AI tools (ChatGPT) were used as a **development assistant**, mainly for:
 - Debugging small issues
 
 
-All core logic, workflows, and database design were implemented and understood by me.
 
 
 ---
